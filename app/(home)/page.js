@@ -5,7 +5,7 @@ import { resolve } from "styled-jsx/css";
 // client component에선 metadata 사용 불가능
 export const metadata = {
   // layout의 metadata에 덮여서 안 나옴
-  title: "Home"
+  // title: "Home"
 };
 
 export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";

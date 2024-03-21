@@ -1,7 +1,7 @@
 // localhost:3000/movies/123123 으로 접근
 // localhost:3000/movies/123123?region=kr&page=2 도 가능
 
-import MovieInfo from "@/components/movie-info";
+import MovieInfo, { getMovie } from "@/components/movie-info";
 import MovieVideos from "@/components/movie-videos";
 import { Suspense } from "react";
 
@@ -18,7 +18,15 @@ import { Suspense } from "react";
 //   const response = await fetch(`${API_URL}/${id}/videos`);
 //   return response.json();
 // }
- 
+
+// 함수 이름이 generateMetadata이어야 함
+export async function generateMetadata({params: {id}}) {
+  const movie = getMovie(id);
+  return {
+    title: movie.title,
+  }
+}
+
 export default async function MovieDetail({params: {id}}) {
   // 백엔드에서 실행됨(vs code terminal)
   // console.log(props);
